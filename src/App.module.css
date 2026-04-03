@@ -1,0 +1,94 @@
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-base);
+  overflow: hidden;
+}
+
+/* ── Left sidebar ── */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* ── Dividers ── */
+.divider {
+  width: 1px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* ── Center calendar ── */
+.center {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* ── Right panel wrapper — animates width ── */
+.rightWrapper {
+  width: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: width 220ms ease;
+  display: flex;
+  align-items: stretch;
+}
+
+.rightWrapperOpen {
+  width: 321px; /* 1px divider + 320px panel */
+}
+
+.rightDivider {
+  width: 1px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* ── Mobile (<768px) ── */
+@media (max-width: 767px) {
+  .sidebar {
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .sidebarHidden {
+    transform: translateX(-10px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .center {
+    display: none;
+  }
+
+  /* Detail becomes full-screen overlay on mobile */
+  .rightWrapper {
+    position: fixed;
+    inset: 0;
+    width: auto;
+    z-index: 50;
+    transform: translateX(100%);
+    transition: transform var(--transition);
+    background: var(--bg-base);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rightWrapperMobile {
+    transform: translateX(0);
+    width: auto;
+  }
+
+  .rightDivider {
+    display: none;
+  }
+}

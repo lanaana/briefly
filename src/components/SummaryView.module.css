@@ -1,0 +1,201 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 680px;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.contextText {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.75;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.65;
+}
+
+.bullet {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+.checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.65;
+}
+
+.checkbox {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* ── AI tags ── */
+.tagsRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tagPill {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--accent);
+  padding: 2px 9px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 20px;
+  background: rgba(99, 102, 241, 0.08);
+  letter-spacing: 0.15px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.outlineBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 8px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-button);
+  background: transparent;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.outlineBtn:hover {
+  color: var(--text-primary);
+  background: var(--bg-surface);
+}
+
+.outlineBtn:active {
+  background: var(--bg-elevated);
+}
+
+.isCopied {
+  color: var(--success);
+  border-color: rgba(52, 199, 89, 0.25);
+}
+
+.isCopied:hover {
+  color: var(--success);
+  border-color: rgba(52, 199, 89, 0.25);
+}
+
+.timestamp {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ── Delete area ── */
+.deleteArea {
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+}
+
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 4px 0;
+  transition: color var(--transition);
+}
+
+.deleteBtn:hover {
+  color: #FC8181;
+}
+
+.deleteConfirm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.deleteConfirmText {
+  font-size: 12px;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.deleteConfirmYes {
+  font-size: 12px;
+  font-weight: 500;
+  color: #FC8181;
+  padding: 3px 8px;
+  border: 1px solid rgba(252, 129, 129, 0.3);
+  border-radius: 5px;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.deleteConfirmYes:hover {
+  background: rgba(252, 129, 129, 0.1);
+  border-color: rgba(252, 129, 129, 0.5);
+}
+
+.deleteConfirmNo {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 3px 8px;
+  border-radius: 5px;
+  transition: color var(--transition), background var(--transition);
+}
+
+.deleteConfirmNo:hover {
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+}

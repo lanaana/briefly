@@ -1,0 +1,123 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  transition: background var(--transition);
+  text-align: left;
+  animation: fadeInUp 280ms ease both;
+}
+
+.item:nth-child(1) { animation-delay: 0ms; }
+.item:nth-child(2) { animation-delay: 55ms; }
+.item:nth-child(3) { animation-delay: 110ms; }
+.item:nth-child(4) { animation-delay: 165ms; }
+.item:nth-child(5) { animation-delay: 220ms; }
+.item:nth-child(6) { animation-delay: 275ms; }
+
+.item:hover {
+  background: var(--bg-surface);
+}
+
+.item:active {
+  background: var(--bg-elevated);
+}
+
+.selected {
+  background: var(--accent-muted);
+}
+
+.selected:hover {
+  background: var(--accent-muted);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+  transition: background var(--transition);
+}
+
+.hasSummary {
+  background: var(--success);
+  animation: pulse 2.8s ease-in-out infinite;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.time {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.duration {
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  padding: 2px 6px;
+  border-radius: var(--radius-tag);
+  font-weight: 500;
+}
+
+.mark {
+  background: rgba(99, 102, 241, 0.28);
+  color: var(--text-primary);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.attendees {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  color: var(--text-muted);
+}

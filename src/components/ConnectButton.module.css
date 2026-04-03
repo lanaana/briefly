@@ -1,0 +1,101 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ── Disconnected CTA ── */
+.connectBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 5px 8px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: transparent;
+  white-space: nowrap;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.connectBtn:hover:not(:disabled) {
+  background: var(--bg-surface);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: var(--text-primary);
+}
+
+.connectBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.greyDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* ── Connected state ── */
+.connectedRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: default;
+}
+
+.greenDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgba(52, 199, 89, 0.2);
+}
+
+.connectedLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.disconnectLink {
+  font-size: 10px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: color var(--transition);
+  flex-shrink: 0;
+}
+
+.disconnectLink:hover {
+  color: #FC8181;
+}
+
+/* ── Error / reconnect ── */
+.errorText {
+  font-size: 10px;
+  color: #FC8181;
+  line-height: 1.4;
+}
+
+.reconnectBtn {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--warning);
+  padding: 3px 6px;
+  border: 1px solid rgba(255, 159, 10, 0.35);
+  border-radius: 5px;
+  background: transparent;
+  transition: background var(--transition);
+}
+
+.reconnectBtn:hover {
+  background: rgba(255, 159, 10, 0.1);
+}

@@ -1,0 +1,266 @@
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes micPulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3); }
+  50%       { box-shadow: 0 0 0 7px rgba(239, 68, 68, 0.08); }
+}
+
+@keyframes dotBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+@keyframes transcribedFade {
+  0%   { opacity: 0; transform: scale(0.85); }
+  15%  { opacity: 1; transform: scale(1); }
+  75%  { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 680px;
+}
+
+/* ── Label row ── */
+.labelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ── Mic button ── */
+.micBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: color var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.micBtn:hover:not(:disabled) {
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+}
+
+.micBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.micBtnRecording {
+  color: #EF4444;
+  background: rgba(239, 68, 68, 0.1);
+  animation: micPulse 1.4s ease-in-out infinite;
+}
+
+.micBtnRecording:hover:not(:disabled) {
+  color: #EF4444;
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.micBtnTranscribed {
+  color: var(--success);
+  background: rgba(52, 199, 89, 0.12);
+  animation: transcribedFade 1.8s ease forwards;
+}
+
+.micBtnTranscribed:hover:not(:disabled) {
+  color: var(--success);
+  background: rgba(52, 199, 89, 0.18);
+}
+
+.transcribedLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--success);
+  animation: transcribedFade 1.8s ease forwards;
+}
+
+/* ── Textarea wrapper ── */
+.textareaWrap {
+  position: relative;
+  border-radius: var(--radius-card);
+  transition: box-shadow var(--transition);
+}
+
+.textareaWrapRecording {
+  box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.4);
+  border-radius: var(--radius-card);
+}
+
+.textarea {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-card);
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--text-primary);
+  resize: vertical;
+  transition: border-color var(--transition);
+  line-height: 1.65;
+  min-height: 160px;
+  display: block;
+}
+
+.textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.textareaWrapRecording .textarea {
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+/* ── Interim transcript overlay ── */
+.interimOverlay {
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  pointer-events: none;
+}
+
+.interimDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #EF4444;
+  flex-shrink: 0;
+  margin-top: 5px;
+  animation: dotBlink 1s ease-in-out infinite;
+}
+
+.interimText {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ── Status hints ── */
+.recordingHint {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.micErrorText {
+  font-size: 12px;
+  color: #FC8181;
+}
+
+/* ── API error box ── */
+.errorBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.18);
+  border-radius: var(--radius-button);
+  font-size: 13px;
+  color: #FC8181;
+}
+
+.retryBtn {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: color var(--transition);
+}
+
+.retryBtn:hover {
+  color: var(--accent-hover);
+}
+
+/* ── Generate button ── */
+.generateBtn {
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px;
+  border-radius: var(--radius-button);
+  transition: background var(--transition), transform var(--transition), opacity var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.generateBtn:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.generateBtn:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.generateBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.isLoading {
+  opacity: 0.8;
+}
+
+.spinner {
+  animation: spin 0.75s linear infinite;
+}
+
+/* ── Cancel button ── */
+.cancelBtn {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 8px 16px;
+  border-radius: var(--radius-button);
+  align-self: center;
+  transition: color var(--transition), background var(--transition);
+}
+
+.cancelBtn:hover:not(:disabled) {
+  color: var(--text-primary);
+  background: var(--bg-surface);
+}
+
+.cancelBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

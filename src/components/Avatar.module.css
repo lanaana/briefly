@@ -1,0 +1,24 @@
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  border: 2px solid var(--bg-base);
+  flex-shrink: 0;
+  letter-spacing: 0.3px;
+  user-select: none;
+}
+
+.color0 { background: #6366F1; }
+.color1 { background: #8B5CF6; }
+.color2 { background: #EC4899; }
+.color3 { background: #14B8A6; }
+.color4 { background: #F59E0B; }
+.color5 { background: #10B981; }
+.color6 { background: #3B82F6; }
+.color7 { background: #EF4444; }

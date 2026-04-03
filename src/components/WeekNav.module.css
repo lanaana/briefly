@@ -1,0 +1,101 @@
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-base);
+  flex-shrink: 0;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.arrowBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  color: var(--text-secondary);
+  transition: color var(--transition), background var(--transition);
+}
+
+.arrowBtn:hover {
+  color: var(--text-primary);
+  background: var(--bg-surface);
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.2px;
+  margin-left: 4px;
+}
+
+.spinner {
+  color: var(--text-muted);
+  animation: spin 0.8s linear infinite;
+  margin-left: 4px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.todayBtn {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  padding: 3px 8px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 5px;
+  background: transparent;
+  transition: background var(--transition), border-color var(--transition);
+  white-space: nowrap;
+}
+
+.todayBtn:hover {
+  background: var(--accent-muted);
+  border-color: var(--accent);
+}
+
+/* ── Week / Month toggle ── */
+.toggle {
+  display: flex;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.toggleBtn {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 3px 10px;
+  background: transparent;
+  transition: color var(--transition), background var(--transition);
+  white-space: nowrap;
+}
+
+.toggleBtn:hover:not(.toggleActive) {
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+}
+
+.toggleActive {
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+}
